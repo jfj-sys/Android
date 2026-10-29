@@ -11,7 +11,7 @@ const User = require('../models/User');
 // @access  Public
 router.post('/register', async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { username, email, password } = req.body;
 
         // 1. 检查用户是否已存在
         let user = await User.findOne({ email });
@@ -21,7 +21,7 @@ router.post('/register', async (req, res) => {
 
         // 2. 创建新用户实例
         user = new User({
-            name,
+            username,
             email,
             password
         });
